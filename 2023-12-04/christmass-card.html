@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Christmas Card design challenge</title>
+  </head>
+
+  <!-- prettier-ignore-attribute -->
+  <body
+    class="
+      flex
+      content-center
+      items-center
+      justify-center
+      space-y-12
+      overflow-visible
+      font-[system-ui]
+      bg-[#5b6877]">
+    <!-- prettier-ignore-attribute -->
+    <card
+      class="
+        border-lg
+        flex
+        aspect-[2/1]
+        basis-11/12
+        flex-col
+        content-center
+        items-center
+        justify-center
+        border-4
+        border-dashed
+        border-red-500
+        bg-cover
+        bg-center
+        bg-no-repeat
+        text-center">
+      <!-- prettier-ignore-attribute -->
+      <h2
+        class="
+          mb-4
+          font-semibold
+          bg-gradient-to-b
+          from-[#d7a851]
+          to-[#8b5d20]
+          bg-clip-text
+          text-black
+          text-[62px]
+          leading-[72px]
+          text-transparent
+          translate-x-[25px]
+          translate-y-[50px]">
+        Unwrap Joy with Our,<br />
+        Spectacular Christmas Sale!.
+      </h2>
+      <p
+        class="color-gray text mb-12 translate-x-[25px] translate-y-[50px] text-[18px] font-light leading-[24px] text-gray-500">
+        Explore a winter wonderland of discounts on a wide range of products,
+        from dazzling decorations <br />to thoughtful gifts that will warm hearts.
+      </p>
+      <a
+        class="translate-x-[25px] translate-y-[50px] rounded-full bg-[#483c2a] px-[30px] py-[14px] text-[18px] text-[#fefdf8]">
+        Shop Collection
+        <span class="font-[monospace] text-[32px] font-light leading-[18px]">→</span>
+      </a>
+    </card>
+    <script type="module">
+      import onKeyPress from "../utils/onKeyPress.js";
+      import createToggle from "../utils/createToggle.js";
+
+      onKeyPress(
+        "KeyT",
+        createToggle(
+          "change body background",
+          () => (document.body.style.background = "url(./layout.png) center/cover no-repeat"),
+          () => (document.body.style.background = "url(./layout-no-text.png) center/cover no-repeat"),
+          () => (document.body.style.background = null),
+        ),
+      );
+
+      onKeyPress(
+        "KeyC",
+        createToggle(
+          "change card background",
+          () => (document.querySelector("card").style.backgroundImage = null),
+          () => (document.querySelector("card").style.backgroundImage = "url('./card-bg.png')"),
+        ),
+      );
+
+      onKeyPress(
+        "KeyO",
+        createToggle(
+          "change card opacity",
+          () => (document.querySelector("card").style.opacity = null),
+          () => (document.querySelector("card").style.opacity = "0.8"),
+          () => (document.querySelector("card").style.opacity = "0.5"),
+          () => (document.querySelector("card").style.opacity = "0."),
+          () => (document.querySelector("card").style.opacity = "0"),
+        ),
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+semi: true
+tabWidth: 2
+trailingComma: "all"
+singleQuote: false
+singleAttributePerLine: true
+printWidth: 120
+bracketSameLine: true
+plugins:
+  - prettier-plugin-tailwindcss
