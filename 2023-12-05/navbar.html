@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="./dist/custom-tailwind.css" />
+  <title>Christmas Navbar Design Challenge</title>
+  <style>
+      #discountCTA {
+          view-transition-name: discount;
+      }
+      ::view-transition-old(discount),
+      ::view-transition-new(discount) {
+          animation: ease-in-out;
+          animation-duration: 1s;
+          isolation: auto;
+      }
+
+      ::view-transition-old(nav),
+      ::view-transition-new(nav) {
+          animation: ease-in-out;
+          animation-duration: 3s;
+          isolation: auto;
+      }
+      svg {
+          pointer-events: none;
+      }
+  </style>
+</head>
+<body>
+<div
+  id="discountCTA"
+  class="bg-[#fcd6cf] leading-8"
+  style="view-transition-name: discount">
+  <div class="container mx-auto flex flex-row flex-nowrap px-2">
+    <p class="mx-auto">Use code "XMAS" for a 20% discount at checkout.</p>
+    <button
+      class="mx-0"
+      data-event-click="close-discount-cta"
+      aria-label="Close discount CTA">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+           class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</div>
+<nav
+  class="container mx-auto flex items-center gap-8 px-2 h-16"
+  style="view-transition-name: nav">
+  <h2 class="text-2xl font-bold">iCodeMas</h2>
+  <label class="relative">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="h-4 w-4 inline relative left-8">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+    </svg>
+    <input
+      class="w-40 rounded-full border bg-gray-200 py-0 pl-8 text-sm leading-8 md:w-52 lg:w-72"
+      type="text"
+      placeholder="Search" />
+  </label>
+  <ul class="ml-auto flex flex-row flex-nowrap gap-5 text-sm">
+    <li><a>Featured</a></li>
+    <li><a>Shop</a></li>
+    <li><a>FAQ</a></li>
+  </ul>
+  <a class="relative">
+  <span class="absolute w-5 h-5 -right-2 -top-2 text-center text-[14px] leading-5 text-white font-bold bg-orange-700 rounded-full">2</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+    </svg>
+  </a>
+</nav>
+</body>
+<script type="module">
+  import { onDataEventValue } from "../utils/dataEvents.js";
+  import { safeStartViewTransition } from "../utils/safeStartViewTransition.js";
+
+  const discountCTA = document.getElementById("discountCTA");
+  console.assert(discountCTA, "Discount CTA not found");
+
+  onDataEventValue("click", "close-discount-cta", () => {
+    safeStartViewTransition(() => {
+      discountCTA.style.opacity = "0";
+      discountCTA.style.height = "0";
+      discountCTA.style.position = "relative";
+      discountCTA.style.top = "-30px";
+      // foobar.parent().body.removeChild(foobar);
+    });
+    setTimeout(() => {
+      safeStartViewTransition(() => {
+        discountCTA.style.opacity = "1";
+        discountCTA.style.height = null;
+        discountCTA.style.top = null;
+      });
+    }, 2000);
+  });
+</script>
+</html>

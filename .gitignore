@@ -1,2 +1,6 @@
 .idea/*
 !.idea/runConfigurations
+node_modules
+package.json
+pnpm-lock.yaml
+dist
