@@ -1,0 +1,36 @@
+- var products = [{"title": "Christmas Tree Decoration", "image": "https://icodethis.com/images/iCodeMas/tree.png", "price": "$19.99", "oldPrice": "", "discount": "", "isNew": true}, {"title": "Gift Box", "image": "https://icodethis.com/images/iCodeMas/gift.png", "price": "$9.99", "oldPrice": "$12.99", "discount": "-23%", "isNew": false}, {"title": "Gingerbread Man Cookie", "image": "https://icodethis.com/images/iCodeMas/gingerbread_cookie.png", "price": "$12.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Snowflake Decoration", "image": "https://icodethis.com/images/iCodeMas/snowflake.png", "price": "$4.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Star-shaped Cookie", "image": "https://icodethis.com/images/iCodeMas/star_cookie.png", "price": "$12.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Santa's Hat", "image": "https://icodethis.com/images/iCodeMas/santa_hat.png", "price": "$39.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Candy Cane", "image": "https://icodethis.com/images/iCodeMas/candy_cane.png", "price": "$8.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Snowman Decoration", "image": "https://icodethis.com/images/iCodeMas/snowman_deco.png", "price": "$39.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Christmas Ball", "image": "https://icodethis.com/images/iCodeMas/christmas_ball.png", "price": "$4.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Christmas Red Socks", "image": "https://icodethis.com/images/iCodeMas/christmas_sock.png", "price": "$29.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Red Ribbon", "image": "https://icodethis.com/images/iCodeMas/red_ribbon.png", "price": "$3.99", "oldPrice": "", "discount": "", "isNew": false}, {"title": "Christmas Tree Cookie", "image": "https://icodethis.com/images/iCodeMas/tree_cookie.png", "price": "$13.99", "oldPrice": "", "discount": "", "isNew": false}];
+
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title Christmas Grid Layout
+        link(rel="stylesheet" href="./dist/custom-tailwind.css")
+    body
+        div.container.mx-auto.grid.grid-cols-items.gap-4
+            mixin box(product)
+                div.grid.grid-cols-1.grid-rows-item
+                    h4.row-start-4=product.title
+                    if product.image
+                        img.z-0.row-start-1.row-span-3.col-start-1.place-self-stretch.bg-blue-100.object-none(src=product.image, alt=product.title)
+                    if product.isNew
+                        span.z-10.row-start-1.row-end-1.col-start-1.bg-blue-600.leading.align-middle.text-white.font-bold.indent-3
+                            | NEW
+                    if product.discount
+                        span.z-10.col-start-1.row-start-1.text-white.bg-amber-700.indent-3= product.discount
+                    div.row-start-5.flex.flex-nowrap.flex-row.items-center.font-bold.gap-2.align-middle
+                        span= product.price
+                        if product.oldPrice
+                            span.text-sm.text-gray-400.font-light.text-t.line-through= product.oldPrice
+            each product in products
+                +box(product)
+        template#addToCart
+            div
+                span
+                    Add to cart
+                svg.w-6.h-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+                    path(stroke-linecap='round' stroke-linejoin='round' d='M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z')
+        template#addedToCart
+            div Added to cart
+
+

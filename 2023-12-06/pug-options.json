@@ -1,0 +1,4 @@
+{
+  "globals": ["require"],
+  "inlineRuntimeFunctions": true
+}
