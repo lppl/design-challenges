@@ -1,3 +1,15 @@
+@keyframes slidein {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
 ::view-transition-group(*) {
     animation-duration: calc(1s / 30);
     animation-timing-function: ease-in-out;
@@ -7,3 +19,15 @@
     animation-duration: calc(1s / 30);
     animation-timing-function: ease-in-out;
 }
+
+::view-transition-group(cart) {
+    animation-duration: calc(1s / 5);
+    animation-timing-function: ease-in-out;
+}
+::view-transition-group-new(cart),
+::view-transition-group-old(cart) {
+    animation-duration: calc(1s / 6);
+    animation-timing-function: ease-in-out;
+    animation-name: slidein;
+}
+

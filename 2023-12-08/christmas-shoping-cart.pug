@@ -1,13 +1,40 @@
+include ../mixins/product-gallery.pug
+include ../mixins/top-nav.pug
+- const products = require(require('path').resolve('./products.js'));
+- const cartItems = require(require('path').resolve('./cart-items.js'));
+
+mixin cart-item(item)
+  .grid.grid-cols-cart-item.grid-rows-cart-item.gap-x-4
+    h5.col-start-2= item.product.title
+    img.aspect-square.col-start-1.row-start-1.row-span-3.bg-blue-100.object-scale-down.p-4(src=item.product.image)
+    p.-mt-2.mb-3.text-gray-400.col-start-2= item.totalPrice
+    x-plus-minus.col-start-2(value=item.count)
+  hr.my-4
+
 html(lang="en")
+
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    title Christmas sidebar with filters
+    title XMass stuff x
     link(rel="stylesheet" href="./dist/custom-tailwind.css")
     link(rel="stylesheet" href="./styles.css")
-body.p-8
-  .flex.flex-col.gap-3
-    h5 Your cart
-    x-plus-minus(value=699 min=100 max=999)
-  include ../web-components/x-plus-minus.pug
-  script(type="module", src="../web-components/x-plus-minus.js")
+
+  body.bg-orange-500.grid.grid-cols-layout.grid-rows-layout.grid-areas-layout.h-full.text-slate-900
+    +top-nav()
+    .cart.grid-in-content.bg-white.p-4.flex.flex-col.h-full.place-self-end(class=[
+      "w-475px"
+    ], style="view-transition-name:cart")
+      h5.mb-4 Your cart
+      each item in cartItems.items
+        +cart-item(item)
+      p.mb-4.flex.flex-row.flex-nowrap.justify-between.font-bold
+        span= "Subtotal: "
+        span= cartItems.totalPrice
+      hr
+      button.btn.bg-cyan-700.text-cyan-50.py-2.rounded-full Proceed to checkout ->
+    include ../components/x-plus-minus.pug
+    script(type="module", src="./test.js")
+    script(type="module", src="../components/x-plus-minus.js")
+    script(type="module", src="../components/x-cart-item.js")
+    script(type="module", src="../components/x-cart.js")

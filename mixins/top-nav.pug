@@ -1,0 +1,18 @@
+mixin top-nav
+  nav.flex.items-center.gap-8.px-4.h-16.bg-white.grid-in-top-nav(style='view-transition-name: nav')
+    h2.text-2xl.font-bold iCodeMas
+    label.relative
+      svg.h-4.w-4.inline.relative.left-8(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+        path(stroke-linecap='round' stroke-linejoin='round' d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z')
+      input.w-40.rounded-full.border.bg-gray-200.py-0.pl-8.text-sm.leading-8(class='md:w-52 lg:w-72' type='text' placeholder='Search')
+    ul.ml-auto.flex.flex-row.flex-nowrap.gap-5.text-sm
+      li
+        a Featured
+      li
+        a Shop
+      li
+        a FAQ
+    a.relative
+      span.absolute.w-5.h-5.-right-2.-top-2.text-center.leading-5.text-white.font-bold.bg-orange-700.rounded-full(class='text-[14px]') 2
+      svg.w-6.h-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+        path(stroke-linecap='round' stroke-linejoin='round' d='M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z')
