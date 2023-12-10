@@ -1,0 +1,23 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Christmas sidebar with filters</title>
+    <link rel="stylesheet" href="./dist/custom-tailwind.css"/>
+    <link rel="stylesheet" href="./styles.css"/>
+  </head>
+</html>
+<body class="p-8">
+  <div class="flex flex-col gap-3">
+    <h5>Your cart</h5>
+    <x-plus-minus value="699" min="100" max="999"></x-plus-minus>
+  </div>
+  <template id="x-plus-minus-template">
+    <div class="flex flex-row flex-nowrap w-min leading-10 border border-1 border-black-200 rounded-lg overflow-hidden text-lg select-none">
+      <button class="minus px-3 bg-white border-r border-1 border-black-200 disabled:opacity-20" value="-">-</button><span class="text-center bg-gray-200 min-w-[4ch]" slot="value"></span>
+      <button class="plus px-3 bg-white border-l border-1 border-black-200 disabled:opacity-20" value="+">+</button>
+    </div>
+  </template>
+  <script type="module" src="../web-components/x-plus-minus.js"></script>
+</body>
