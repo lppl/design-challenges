@@ -32,8 +32,6 @@ class PlusMinus extends HTMLElement {
     console.assert(this.#minusBtn instanceof HTMLButtonElement, "Template does not contain minusBtn");
     console.assert(this.#plusBtn instanceof HTMLButtonElement, "Template does not contain plusBtn");
 
-    console.log("this is construct");
-
     this.append(this.#content);
   }
 
@@ -56,11 +54,9 @@ class PlusMinus extends HTMLElement {
   }
 
   #render() {
-    safeStartViewTransition(() => {
-      this.#valueContainer.innerText = this.#value;
-      this.#minusBtn.disabled = this.#value <= this.#min;
-      this.#plusBtn.disabled = this.#value >= this.#max;
-    });
+    this.#valueContainer.innerText = this.#value;
+    this.#minusBtn.disabled = this.#value <= this.#min;
+    this.#plusBtn.disabled = this.#value >= this.#max;
   }
 
   connectedCallback() {
@@ -82,8 +78,7 @@ class PlusMinus extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === "value" && oldValue !== newValue) {
-      console.log({ oldValue, newValue });
-      this.#value = newValue;
+      this.#render();
     }
   }
 }
