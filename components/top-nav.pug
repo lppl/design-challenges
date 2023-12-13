@@ -1,4 +1,4 @@
-nav.grid-in-top-nav.flex.items-center.gap-8.h-16.w-max(style='view-transition-name: nav')
+nav.grid-in-top-nav.flex.flex-nowrap.items-center.gap-4.py-4(style='view-transition-name: nav')
   h2.text-2xl.font-bold iCodeMas
   label.relative
     svg.h-4.w-4.inline.relative.left-8(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
@@ -11,7 +11,7 @@ nav.grid-in-top-nav.flex.items-center.gap-8.h-16.w-max(style='view-transition-na
       a Shop
     li
       a FAQ
-  a.relative
-    span.absolute.w-5.h-5.-right-2.-top-2.text-center.leading-5.text-white.font-bold.bg-orange-700.rounded-full(class='text-[14px]') 2
-    svg.w-6.h-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+  button.relative(x-event="toggle-element" value="cart")
+    span.absolute.w-5.h-5.-right-2.-top-2.text-center.leading-5.text-white.font-bold.bg-orange-700.rounded-full.pointer-events-none(class='text-[14px]') 2
+    svg.w-6.h-6.pointer-events-none(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
       path(stroke-linecap='round' stroke-linejoin='round' d='M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z')

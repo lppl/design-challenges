@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./main.css"/>
   </head>
   <body class="grid-areas-shop text-slate-900">
-    <nav class="grid-in-top-nav flex items-center gap-8 h-16 w-max" style="view-transition-name: nav">
+    <nav class="grid-in-top-nav flex flex-nowrap items-center gap-4 py-4" style="view-transition-name: nav">
       <h2 class="text-2xl font-bold">iCodeMas</h2>
       <label class="relative">
         <svg class="h-4 w-4 inline relative left-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -20,10 +20,12 @@
         <li><a>Featured</a></li>
         <li><a>Shop</a></li>
         <li><a>FAQ</a></li>
-      </ul><a class="relative"><span class="absolute w-5 h-5 -right-2 -top-2 text-center leading-5 text-white font-bold bg-orange-700 rounded-full text-[14px]">2</span>
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      </ul>
+      <button class="relative" x-event="toggle-element" value="cart"><span class="absolute w-5 h-5 -right-2 -top-2 text-center leading-5 text-white font-bold bg-orange-700 rounded-full pointer-events-none text-[14px]">2</span>
+        <svg class="w-6 h-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
-        </svg></a>
+        </svg>
+      </button>
     </nav>
     <x-key x-event="toggle-element" value="filters-sidebar" code="KeyF"></x-key>
     <div class="grid-in-filters" id="filters-sidebar" style="display:none">
@@ -119,15 +121,52 @@
         </button>
         <h5 class="text-lg font-bold mb-4">Control Panel</h5>
         <dl class="grid grid-cols-2 gap-4">
-          <dt class="font-bold col-start-1">Toggle control:</dt>
+          <dt class="font-bold col-start-1">Sidebar filters:</dt>
           <dd class="col-start-2 flex flex-col gap-2">
             <button class="border border-1 bg-blue-100 rounded-full" x-event="show-element" value="sidebar-filters">Open filters</button>
             <button class="border border-1 bg-blue-100 rounded-full" x-event="hide-element" value="sidebar-filters">Close filters</button>
             <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-element" value="sidebar-filters">Toggle filters</button>
           </dd>
+          <dt class="font-bold col-start-1">Cart:</dt>
+          <dd class="col-start-2 flex flex-col gap-2">
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="show-element" value="cart">Open cart</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="hide-element" value="cart">Close cart</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-element" value="cart">Toggle cart</button>
+          </dd>
         </dl>
       </dialog>
     </div>
+    <x-key x-event="toggle-element" value="cart" code="KeyC"></x-key>
+    <div class="grid-in-cart bg-white p-4 flex flex-col h-full" id="cart" style="display:none;view-transition-name:cart">
+      <h5 class="mb-4 font-bold">Your cart</h5>
+      <div class="grid grid-cols-cart-item grid-rows-cart-item gap-x-4">
+        <h5 class="col-start-2">Gingerbread Man Cookie</h5><img class="aspect-square col-start-1 row-start-1 row-span-3 bg-blue-100 object-scale-down p-4" src="https://icodethis.com/images/iCodeMas/gingerbread_cookie.png"/>
+        <p class="-mt-2 mb-3 text-gray-400 col-start-2">$12.99</p>
+        <x-plus-minus class="col-start-2" value="1" min="1" max="99"></x-plus-minus>
+      </div>
+      <hr class="my-4"/>
+      <div class="grid grid-cols-cart-item grid-rows-cart-item gap-x-4">
+        <h5 class="col-start-2">Star-shaped Cookie</h5><img class="aspect-square col-start-1 row-start-1 row-span-3 bg-blue-100 object-scale-down p-4" src="https://icodethis.com/images/iCodeMas/star_cookie.png"/>
+        <p class="-mt-2 mb-3 text-gray-400 col-start-2">$64.95</p>
+        <x-plus-minus class="col-start-2" value="5" min="1" max="99"></x-plus-minus>
+      </div>
+      <hr class="my-4"/>
+      <div class="grid grid-cols-cart-item grid-rows-cart-item gap-x-4">
+        <h5 class="col-start-2">Santa&apos;s Hat</h5><img class="aspect-square col-start-1 row-start-1 row-span-3 bg-blue-100 object-scale-down p-4" src="https://icodethis.com/images/iCodeMas/santa_hat.png"/>
+        <p class="-mt-2 mb-3 text-gray-400 col-start-2">$79.98</p>
+        <x-plus-minus class="col-start-2" value="2" min="1" max="99"></x-plus-minus>
+      </div>
+      <hr class="my-4"/>
+      <p class="mb-4 flex flex-row flex-nowrap justify-between font-bold"><span>Subtotal:</span><span>$157.92</span></p>
+      <hr/>
+      <button class="btn bg-cyan-700 text-cyan-50 py-2 rounded-full">Proceed to checkout -&gt;</button>
+    </div>
+    <template id="x-plus-minus-template">
+      <div class="flex flex-row flex-nowrap w-min leading-10 border border-1 border-black-200 rounded-lg overflow-hidden text-lg select-none">
+        <button class="minus px-3 bg-white border-r border-1 border-black-200 disabled:opacity-20" value="-">-</button><span class="text-center bg-gray-200 min-w-[4ch]" slot="value"></span>
+        <button class="plus px-3 bg-white border-l border-1 border-black-200 disabled:opacity-20" value="+">+</button>
+      </div>
+    </template>
     <div class="grid grid-in-cta-nav subgrid bg-[#fcd6cf]" id="discount-cta" style="view-transition-name: discount">
       <div class="grid subgrid grid-cols-content-lines">
         <p class="place-self-center grid-cols-content-lines">Use code &quot;XMAS&quot; for a 20% discount at checkout.</p>
@@ -139,11 +178,10 @@
       </div>
     </div>
   </body>
-  <script type="module" src="../components/x-panel.js"></script>
-  <script type="module" src="../components/x-key.js"></script>
   <script type="module" src="../utils/xEvents.js"></script>
   <script type="module" src="../utils/logEvent.js"></script>
   <script type="module" src="../events/events.js"></script>
+  <script type="module" src="../components/components.js"></script>
   <script type="module">
     import {registerXEvents} from "../utils/xEvents.js";
     registerXEvents();

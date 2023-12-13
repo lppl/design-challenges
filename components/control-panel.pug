@@ -8,8 +8,14 @@
         path(stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12')
     h5.text-lg.font-bold.mb-4 Control Panel
     dl.grid.grid-cols-2.gap-4
-      dt.font-bold.col-start-1 Toggle control:
+      dt.font-bold.col-start-1 Sidebar filters:
       dd.col-start-2.flex.flex-col.gap-2
         button.border.border-1.bg-blue-100.rounded-full(x-event="show-element" value="sidebar-filters") Open filters
         button.border.border-1.bg-blue-100.rounded-full(x-event="hide-element" value="sidebar-filters") Close filters
         button.border.border-1.bg-blue-100.rounded-full(x-event="toggle-element" value="sidebar-filters") Toggle filters
+      dt.font-bold.col-start-1 Cart:
+      dd.col-start-2.flex.flex-col.gap-2
+        button.border.border-1.bg-blue-100.rounded-full(x-event="show-element" value="cart") Open cart
+        button.border.border-1.bg-blue-100.rounded-full(x-event="hide-element" value="cart") Close cart
+        button.border.border-1.bg-blue-100.rounded-full(x-event="toggle-element" value="cart") Toggle cart
+

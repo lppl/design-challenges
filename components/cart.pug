@@ -1,0 +1,31 @@
+x-key(x-event="toggle-element" value="cart" code="KeyC")
+#cart.grid-in-cart.bg-white.p-4.flex.flex-col.h-full(style='display:none;view-transition-name:cart')
+  h5.mb-4.font-bold Your cart
+  .grid.grid-cols-cart-item.grid-rows-cart-item.gap-x-4
+    h5.col-start-2 Gingerbread Man Cookie
+    img.aspect-square.col-start-1.row-start-1.row-span-3.bg-blue-100.object-scale-down.p-4(src='https://icodethis.com/images/iCodeMas/gingerbread_cookie.png')
+    p.-mt-2.mb-3.text-gray-400.col-start-2 $12.99
+    x-plus-minus.col-start-2(value='1' min='1' max='99')
+  hr.my-4
+  .grid.grid-cols-cart-item.grid-rows-cart-item.gap-x-4
+    h5.col-start-2 Star-shaped Cookie
+    img.aspect-square.col-start-1.row-start-1.row-span-3.bg-blue-100.object-scale-down.p-4(src='https://icodethis.com/images/iCodeMas/star_cookie.png')
+    p.-mt-2.mb-3.text-gray-400.col-start-2 $64.95
+    x-plus-minus.col-start-2(value='5' min='1' max='99')
+  hr.my-4
+  .grid.grid-cols-cart-item.grid-rows-cart-item.gap-x-4
+    h5.col-start-2 Santa&apos;s Hat
+    img.aspect-square.col-start-1.row-start-1.row-span-3.bg-blue-100.object-scale-down.p-4(src='https://icodethis.com/images/iCodeMas/santa_hat.png')
+    p.-mt-2.mb-3.text-gray-400.col-start-2 $79.98
+    x-plus-minus.col-start-2(value='2' min='1' max='99')
+  hr.my-4
+  p.mb-4.flex.flex-row.flex-nowrap.justify-between.font-bold
+    span Subtotal:
+    span $157.92
+  hr
+  button.btn.bg-cyan-700.text-cyan-50.py-2.rounded-full Proceed to checkout -&gt;
+template#x-plus-minus-template
+  .flex.flex-row.flex-nowrap.w-min.leading-10.border.border-1.border-black-200.rounded-lg.overflow-hidden.text-lg.select-none
+    button.minus.px-3.bg-white.border-r.border-1.border-black-200(class='disabled:opacity-20' value='-') -
+    span.text-center.bg-gray-200(class='min-w-[4ch]' slot='value')
+    button.plus.px-3.bg-white.border-l.border-1.border-black-200(class='disabled:opacity-20' value='+') +

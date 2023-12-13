@@ -38,7 +38,8 @@
 }
 
 .grid-in-cart {
-    grid-area: content;
+    grid-column: mid-right;
+    grid-row: content;
 }
 
 .grid-in-filters {
