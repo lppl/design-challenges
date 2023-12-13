@@ -8,18 +8,105 @@
     <link rel="stylesheet" href="./main.css"/>
   </head>
   <body class="grid-areas-shop text-slate-900">
-    <x-key x-event="toggle-element" value="filters" code="KeyF"></x-key>
-    <x-nav class="grid-in-top-nav">Nav</x-nav>
-    <div class="grid-in-filters border-blue-600 border-1 rounded-md inset" id="filters" style="display:none">
-      <button class="float-right" x-event="hide-element" value="filters">
-        <svg class="w-6 h-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+    <nav class="grid-in-top-nav flex items-center gap-8 h-16 w-max" style="view-transition-name: nav">
+      <h2 class="text-2xl font-bold">iCodeMas</h2>
+      <label class="relative">
+        <svg class="h-4 w-4 inline relative left-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
         </svg>
-      </button>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum eos et mollitia odio officiis perspiciatis porro praesentium quia sed totam. Aperiam consequuntur dolores laboriosam quas quia temporibus tenetur unde voluptates.</p>
+        <input class="w-40 rounded-full border bg-gray-200 py-0 pl-8 text-sm leading-8 md:w-52 lg:w-72" type="text" placeholder="Search"/>
+      </label>
+      <ul class="ml-auto flex flex-row flex-nowrap gap-5 text-sm">
+        <li><a>Featured</a></li>
+        <li><a>Shop</a></li>
+        <li><a>FAQ</a></li>
+      </ul><a class="relative"><span class="absolute w-5 h-5 -right-2 -top-2 text-center leading-5 text-white font-bold bg-orange-700 rounded-full text-[14px]">2</span>
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+        </svg></a>
+    </nav>
+    <x-key x-event="toggle-element" value="filters-sidebar" code="KeyF"></x-key>
+    <div class="grid-in-filters" id="filters-sidebar" style="display:none">
+      <div class="flex flex-row flex-wrap gap-1" id="active-filters" style="view-transition-name:nav-active-filters"></div>
+      <div class="px-4" id="filters" style="view-transition-name:nav-filters">
+        <button class="float-right" x-event="hide-element" value="sidebar-filters">
+          <svg class="w-6 h-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <h4 class="my-3 font-bold">Categories</h4>
+        <ul class="flex flex-col flex-gap-2">
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-categories__cookies">
+              <input id="filter-categories__cookies" type="checkbox" value="categories__cookies" data-event-change="toggle-filter" data-category-name="Categories" data-filter-name="Cookies"/><span>Cookies</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-categories__candies">
+              <input id="filter-categories__candies" type="checkbox" value="categories__candies" data-event-change="toggle-filter" data-category-name="Categories" data-filter-name="Candies"/><span>Candies</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-categories__ornaments">
+              <input id="filter-categories__ornaments" type="checkbox" value="categories__ornaments" data-event-change="toggle-filter" data-category-name="Categories" data-filter-name="Ornaments"/><span>Ornaments</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-categories__accessories">
+              <input id="filter-categories__accessories" type="checkbox" value="categories__accessories" data-event-change="toggle-filter" data-category-name="Categories" data-filter-name="Accessories"/><span>Accessories</span>
+            </label>
+          </li>
+        </ul>
+        <h4 class="my-3 font-bold">Colors</h4>
+        <ul class="flex flex-col flex-gap-2">
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-categories__red">
+              <input id="filter-categories__red" type="checkbox" value="categories__red" data-event-change="toggle-filter" data-category-name="Colors" data-filter-name="Red"/><span>Red</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-colors__white">
+              <input id="filter-colors__white" type="checkbox" value="colors__white" data-event-change="toggle-filter" data-category-name="Colors" data-filter-name="White"/><span>White</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-colors__green">
+              <input id="filter-colors__green" type="checkbox" value="colors__green" data-event-change="toggle-filter" data-category-name="Colors" data-filter-name="Green"/><span>Green</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-colors__brown">
+              <input id="filter-colors__brown" type="checkbox" value="colors__brown" data-event-change="toggle-filter" data-category-name="Colors" data-filter-name="Brown"/><span>Brown</span>
+            </label>
+          </li>
+        </ul>
+        <h4 class="my-3 font-bold">Size</h4>
+        <ul class="flex flex-col flex-gap-2">
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-size__small">
+              <input id="filter-size__small" type="checkbox" value="size__small" data-event-change="toggle-filter" data-category-name="Size" data-filter-name="Small"/><span>Small</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-size__medium">
+              <input id="filter-size__medium" type="checkbox" value="size__medium" data-event-change="toggle-filter" data-category-name="Size" data-filter-name="Medium"/><span>Medium</span>
+            </label>
+          </li>
+          <li>
+            <label class="flex flex-row flex-nowrap gap-2" for="filter-size__large">
+              <input id="filter-size__large" type="checkbox" value="size__large" data-event-change="toggle-filter" data-category-name="Size" data-filter-name="Large"/><span>Large</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <template id="active-filter-template">
+        <button class="group relative flex flex-nowrap flex-row items-center text-blue-800 text-sm leading-relaxed rounded-lg bg-blue-300 border border-blue-600 gap-2 px-2 hover:bg-amber-300" value="{filterValue}" data-event-click="remove-filter" style="view-transition-name=active-filter-{filterValue}"><span class="pointer-events-none">{categoryName}: {filterName}</span><span class="pointer-events-none block invisible absolute -right-1 -top-1 bg-red-700 rounded-full z-10 group-hover:visible">
+            <svg class="w-3 h-3 text-red" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+            </svg></span></button>
+      </template>
+      <script type="module" src="../components/filters.js"></script>
     </div>
-    <x-cart class="grid-in-cart">Cart</x-cart>
-    <x-gallery-items class="grid-in-content">Gallery Items</x-gallery-items>
     <div class="grid-in-footer">
       <x-key x-event="toggle-dialog" code="KeyO" value="control-panel"></x-key>
       <h4>Press `o` to open control panel</h4>
@@ -34,12 +121,22 @@
         <dl class="grid grid-cols-2 gap-4">
           <dt class="font-bold col-start-1">Toggle control:</dt>
           <dd class="col-start-2 flex flex-col gap-2">
-            <button class="border border-1 bg-blue-100 rounded-full" x-event="show-element" value="filters">Open filters</button>
-            <button class="border border-1 bg-blue-100 rounded-full" x-event="hide-element" value="filters">Close filters</button>
-            <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-element" value="filters">Toggle filters</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="show-element" value="sidebar-filters">Open filters</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="hide-element" value="sidebar-filters">Close filters</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-element" value="sidebar-filters">Toggle filters</button>
           </dd>
         </dl>
       </dialog>
+    </div>
+    <div class="grid grid-in-cta-nav subgrid bg-[#fcd6cf]" id="discount-cta" style="view-transition-name: discount">
+      <div class="grid subgrid grid-cols-content-lines">
+        <p class="place-self-center grid-cols-content-lines">Use code &quot;XMAS&quot; for a 20% discount at checkout.</p>
+        <button class="place-self-end grid-cols-content-lines" x-event="hide-element" value="discount-cta" aria-label="Close discount CTA">
+          <svg class="w-4 h-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </body>
   <script type="module" src="../components/x-panel.js"></script>

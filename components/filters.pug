@@ -1,0 +1,65 @@
+x-key(x-event="toggle-element" value="filters-sidebar" code="KeyF")
+#filters-sidebar.grid-in-filters(style="display:none")
+  #active-filters.flex.flex-row.flex-wrap.gap-1(style="view-transition-name:nav-active-filters")
+  #filters.px-4(style="view-transition-name:nav-filters")
+    button.float-right(x-event="hide-element" value="sidebar-filters")
+      svg.w-6.h-6.pointer-events-none(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+        path(stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12')
+    h4.my-3.font-bold Categories
+    ul.flex.flex-col.flex-gap-2
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-categories__cookies')
+          input#filter-categories__cookies(type='checkbox' value='categories__cookies' data-event-change='toggle-filter' data-category-name='Categories' data-filter-name='Cookies')
+          span Cookies
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-categories__candies')
+          input#filter-categories__candies(type='checkbox' value='categories__candies' data-event-change='toggle-filter' data-category-name='Categories' data-filter-name='Candies')
+          span Candies
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-categories__ornaments')
+          input#filter-categories__ornaments(type='checkbox' value='categories__ornaments' data-event-change='toggle-filter' data-category-name='Categories' data-filter-name='Ornaments')
+          span Ornaments
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-categories__accessories')
+          input#filter-categories__accessories(type='checkbox' value='categories__accessories' data-event-change='toggle-filter' data-category-name='Categories' data-filter-name='Accessories')
+          span Accessories
+    h4.my-3.font-bold Colors
+    ul.flex.flex-col.flex-gap-2
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-categories__red')
+          input#filter-categories__red(type='checkbox' value='categories__red' data-event-change='toggle-filter' data-category-name='Colors' data-filter-name='Red')
+          span Red
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-colors__white')
+          input#filter-colors__white(type='checkbox' value='colors__white' data-event-change='toggle-filter' data-category-name='Colors' data-filter-name='White')
+          span White
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-colors__green')
+          input#filter-colors__green(type='checkbox' value='colors__green' data-event-change='toggle-filter' data-category-name='Colors' data-filter-name='Green')
+          span Green
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-colors__brown')
+          input#filter-colors__brown(type='checkbox' value='colors__brown' data-event-change='toggle-filter' data-category-name='Colors' data-filter-name='Brown')
+          span Brown
+    h4.my-3.font-bold Size
+    ul.flex.flex-col.flex-gap-2
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-size__small')
+          input#filter-size__small(type='checkbox' value='size__small' data-event-change='toggle-filter' data-category-name='Size' data-filter-name='Small')
+          span Small
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-size__medium')
+          input#filter-size__medium(type='checkbox' value='size__medium' data-event-change='toggle-filter' data-category-name='Size' data-filter-name='Medium')
+          span Medium
+      li
+        label.flex.flex-row.flex-nowrap.gap-2(for='filter-size__large')
+          input#filter-size__large(type='checkbox' value='size__large' data-event-change='toggle-filter' data-category-name='Size' data-filter-name='Large')
+          span Large
+  template#active-filter-template
+    button.group.relative.flex.flex-nowrap.flex-row.items-center.text-blue-800.text-sm.leading-relaxed.rounded-lg.bg-blue-300.border.border-blue-600.gap-2.px-2(class='hover:bg-amber-300' value='{filterValue}' data-event-click='remove-filter' style='view-transition-name=active-filter-{filterValue}')
+      span.pointer-events-none {categoryName}: {filterName}
+      span.pointer-events-none.block.invisible.absolute.-right-1.-top-1.bg-red-700.rounded-full.z-10(class='group-hover:visible')
+        svg.w-3.h-3.text-red(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+          path(stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12')
+  script(type='module' src='../components/filters.js')
+
