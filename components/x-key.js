@@ -35,6 +35,12 @@ class XKey extends HTMLElement {
 
   get isEnabled() {
     for (let i = 10, rootCandidate = this; i >= 0; i--, rootCandidate = rootCandidate.parentElement) {
+      if (rootCandidate.hasAttribute("disabled")) {
+        return false;
+      }
+      if (rootCandidate instanceof HTMLDialogElement) {
+        return rootCandidate.hasAttribute("open");
+      }
       if (rootCandidate.hasAttribute("x-keys")) {
         return rootCandidate.getAttribute("x-keys") !== "disabled";
       }

@@ -2,9 +2,10 @@
     display: grid;
     width: 100%;
     min-height: 100%;
-    grid-template-columns: 1fr [left] 30ch [mid-left] minmax(20ch, 40ch) [mid-right] 30ch [right] 1fr;
-    grid-template-rows: min-content auto min-content;
+    grid-template-columns: [left-0] 1fr [left] 30ch [mid-left] minmax(20ch, 40ch) [mid-right] 30ch [right] 1fr [right-0];
+    grid-template-rows: [nav-cta] min-content [top-nav] min-content [content] auto [footer] min-content [end];
     grid-template-areas:
+        "nav-cta nav-cta nav-cta nav-cta nav-cta"
         ". header header header ."
         ". content content content ."
         ". footer footer footer ."
@@ -33,5 +34,5 @@
 
 .grid-in-filters {
     grid-column: left/mid-left;
-    grid-row: 2/1;
+    grid-row: content;
 }

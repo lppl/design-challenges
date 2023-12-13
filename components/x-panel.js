@@ -1,6 +1,6 @@
 import { listenFor } from "../utils/xEvents.js";
 
-class XControlPanel extends HTMLElement {
+class XPanel extends HTMLElement {
   /** Function */
   unregister = () => undefined;
   /** HTMLDialogElement */
@@ -48,4 +48,4 @@ class XControlPanel extends HTMLElement {
   }
 }
 
-customElements.define("x-control-panel", XControlPanel);
+customElements.define("x-control-panel", XPanel);

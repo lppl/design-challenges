@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="./main.css"/>
   </head>
   <body class="grid-areas-shop text-slate-900">
+    <x-key x-event="toggle-element" value="filters" code="KeyF"></x-key>
     <x-nav class="grid-in-top-nav">Nav</x-nav>
-    <x-filters class="grid-in-filters">Filters</x-filters>
+    <div class="grid-in-filters border-blue-600 border-1 rounded-md inset" id="filters" style="display:none">
+      <button class="float-right" x-event="hide-element" value="filters">
+        <svg class="w-6 h-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum eos et mollitia odio officiis perspiciatis porro praesentium quia sed totam. Aperiam consequuntur dolores laboriosam quas quia temporibus tenetur unde voluptates.</p>
+    </div>
     <x-cart class="grid-in-cart">Cart</x-cart>
     <x-gallery-items class="grid-in-content">Gallery Items</x-gallery-items>
-    <x-control-panel class="grid-in-footer">
-      <x-key x-event="toggle-control-panel" code="KeyO" value="toggle"></x-key>
+    <div class="grid-in-footer">
+      <x-key x-event="toggle-dialog" code="KeyO" value="control-panel"></x-key>
       <h4>Press `o` to open control panel</h4>
-      <dialog class="border border-1 rounded-md border-blue-600 p-4" x-keys="disabled">
-        <x-key x-event="toggle-control-panel" code="Escape" value="close" method="keydown"></x-key>
-        <button class="float-right" x-event="toggle-control-panel" value="close">
+      <dialog class="border border-1 rounded-md border-blue-600 p-4 fixed top-[10dvh]" id="control-panel" x-keys="disabled">
+        <x-key x-event="close-dialog" value="control-panel" code="Escape" method="keydown"></x-key>
+        <button class="float-right" x-event="close-dialog" value="control-panel">
           <svg class="w-6 h-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
@@ -26,18 +34,19 @@
         <dl class="grid grid-cols-2 gap-4">
           <dt class="font-bold col-start-1">Toggle control:</dt>
           <dd class="col-start-2 flex flex-col gap-2">
-            <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-filters" value="open">Open filters</button>
-            <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-filters" value="close">Close filters</button>
-            <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-filters" value="toggle">Toggle filters</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="show-element" value="filters">Open filters</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="hide-element" value="filters">Close filters</button>
+            <button class="border border-1 bg-blue-100 rounded-full" x-event="toggle-element" value="filters">Toggle filters</button>
           </dd>
         </dl>
       </dialog>
-    </x-control-panel>
+    </div>
   </body>
-  <script type="module" src="../components/x-control-panel.js"></script>
+  <script type="module" src="../components/x-panel.js"></script>
   <script type="module" src="../components/x-key.js"></script>
   <script type="module" src="../utils/xEvents.js"></script>
   <script type="module" src="../utils/logEvent.js"></script>
+  <script type="module" src="../events/events.js"></script>
   <script type="module">
     import {registerXEvents} from "../utils/xEvents.js";
     registerXEvents();
