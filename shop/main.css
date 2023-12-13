@@ -1,0 +1,37 @@
+.grid-areas-shop {
+    display: grid;
+    width: 100%;
+    min-height: 100%;
+    grid-template-columns: 1fr [left] 30ch [mid-left] minmax(20ch, 40ch) [mid-right] 30ch [right] 1fr;
+    grid-template-rows: min-content auto min-content;
+    grid-template-areas:
+        ". header header header ."
+        ". content content content ."
+        ". footer footer footer ."
+    ;
+}
+
+.grid-in-top-nav {
+    grid-area: header;
+}
+
+.grid-in-header {
+    grid-area: header;
+}
+
+.grid-in-content {
+    grid-area: content;
+}
+
+.grid-in-footer {
+    grid-area: footer;
+}
+
+.grid-in-cart {
+    grid-area: content;
+}
+
+.grid-in-filters {
+    grid-column: left/mid-left;
+    grid-row: 2/1;
+}

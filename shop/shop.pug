@@ -1,0 +1,42 @@
+- const data = require(require('path').resolve('./data.js'));
+- const products = data.products;
+- const cart = data.cart;
+- const filters = data.filters;
+
+html(lang="en")
+
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title XMass stuff x
+    link(rel="stylesheet" href="../styles/dist/custom-tailwind.css")
+    link(rel="stylesheet" href="./main.css")
+
+  body.grid-areas-shop.text-slate-900
+    x-nav.grid-in-top-nav Nav
+    x-filters.grid-in-filters Filters
+    x-cart.grid-in-cart Cart
+    x-gallery-items.grid-in-content Gallery Items
+    x-control-panel.grid-in-footer
+      x-key(x-event="toggle-control-panel" code="KeyO" value="toggle")
+      h4 Press `o` to open control panel
+      dialog.border.border-1.rounded-md.border-blue-600.p-4(x-keys="disabled")
+        x-key(x-event="toggle-control-panel" code="Escape" value="close" method="keydown")
+        button.float-right(x-event="toggle-control-panel" value="close")
+          svg.w-6.h-6.pointer-events-none(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
+            path(stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12')
+        h5.text-lg.font-bold.mb-4 Control Panel
+        dl.grid.grid-cols-2.gap-4
+          dt.font-bold.col-start-1 Toggle control:
+          dd.col-start-2.flex.flex-col.gap-2
+            button.border.border-1.bg-blue-100.rounded-full(x-event="toggle-filters" value="open") Open filters
+            button.border.border-1.bg-blue-100.rounded-full(x-event="toggle-filters" value="close") Close filters
+            button.border.border-1.bg-blue-100.rounded-full(x-event="toggle-filters" value="toggle") Toggle filters
+
+  script(type="module", src="../components/x-control-panel.js")
+  script(type="module", src="../components/x-key.js")
+  script(type="module", src="../utils/xEvents.js")
+  script(type="module", src="../utils/logEvent.js")
+  script(type="module").
+    import {registerXEvents} from "../utils/xEvents.js";
+    registerXEvents();
