@@ -29,7 +29,7 @@
     <div class="grid-in-filters" id="filters-sidebar" style="display:none">
       <div class="flex flex-row flex-wrap gap-1" id="active-filters" style="view-transition-name:nav-active-filters"></div>
       <div class="px-4" id="filters" style="view-transition-name:nav-filters">
-        <button class="float-right" x-event="hide-element" value="sidebar-filters">
+        <button class="float-right" x-event="hide-element" value="filters-sidebar">
           <svg class="w-6 h-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
@@ -110,7 +110,7 @@
     <div class="grid-in-footer">
       <x-key x-event="toggle-dialog" code="KeyO" value="control-panel"></x-key>
       <h4>Press `o` to open control panel</h4>
-      <dialog class="border border-1 rounded-md border-blue-600 p-4 fixed top-[10dvh]" id="control-panel" x-keys="disabled">
+      <dialog class="border border-1 rounded-md border-blue-600 p-4 fixed top-[10dvh]" id="control-panel">
         <x-key x-event="close-dialog" value="control-panel" code="Escape" method="keydown"></x-key>
         <button class="float-right" x-event="close-dialog" value="control-panel">
           <svg class="w-6 h-6 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

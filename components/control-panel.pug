@@ -1,7 +1,7 @@
 .grid-in-footer
   x-key(x-event="toggle-dialog" code="KeyO" value="control-panel")
   h4 Press `o` to open control panel
-  dialog#control-panel.border.border-1.rounded-md.border-blue-600.p-4.fixed(class="top-[10dvh]" x-keys="disabled")
+  dialog#control-panel.border.border-1.rounded-md.border-blue-600.p-4.fixed(class="top-[10dvh]")
     x-key(x-event="close-dialog" value="control-panel" code="Escape" method="keydown")
     button.float-right(x-event="close-dialog" value="control-panel")
       svg.w-6.h-6.pointer-events-none(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke-width='1.5' stroke='currentColor')
