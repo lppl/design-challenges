@@ -1,8 +1,8 @@
 mixin product-item(product)
-  div.grid.grid-cols-1.grid-rows-item
+  div.grid.grid-cols-1.grid-rows-product-item
     h4.row-start-4=product.title
     if product.image
-      img.z-0.row-start-1.row-span-3.col-start-1.place-self-stretch.bg-blue-100.object-none(src=product.image, alt=product.title)
+      img.row-start-1.row-span-3.col-start-1.place-self-stretch.bg-blue-100.object-scale-down.p-8(src=product.image, alt=product.title)
     if product.isNew
       span.z-10.row-start-1.row-end-1.col-start-1.bg-blue-600.leading.align-middle.text-white.font-bold.indent-3
         | NEW

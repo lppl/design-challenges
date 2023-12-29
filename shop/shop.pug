@@ -9,6 +9,7 @@ html(lang="en")
 
   body.grid-areas-shop.text-slate-900
     include ../components/top-nav
+    esi:include(src="/product?template=components/product-grid.pug")
     include ../components/filters
     include ../components/control-panel
     include ../components/cart

@@ -46,3 +46,11 @@
     grid-column: left/mid-left;
     grid-row: content;
 }
+
+.grid-cols-product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+}
+
+.grid-rows-product-item {
+    grid-template-rows: 28px 146px 36px 32px 32px;
+}

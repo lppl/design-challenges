@@ -14,15 +14,15 @@ router.get("/", (ctx) => {
 });
 
 router.get("/product", (ctx) => {
-  sendData(ctx, 200, products);
+  sendData(ctx, 200, { products });
 });
 
 router.get("/product/:i", (ctx) => {
   const i = Number(ctx.params.i);
   if (i in products) {
-    sendData(ctx, 200, { item: products[i] });
+    sendData(ctx, 200, { product: products[i] });
   } else {
-    sendData(ctx, 404, { item: null });
+    sendData(ctx, 404, { product: null });
   }
 });
 
