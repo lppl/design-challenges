@@ -40,7 +40,7 @@ function sendHTML(ctx: Context, status: number, body: string) {
 }
 
 function getTemplate(ctx: Context) {
-  const template = ctx.request.query.template;
+  const template = ctx.template || ctx.query.template || ctx.request.query.template;
   if (typeof template === "string") {
     return template;
   } else if (Array.isArray(template)) {

@@ -4,6 +4,15 @@ import { products } from "./data/products.ts";
 
 const router = new Router();
 
+router.get("/", (ctx) => {
+  ctx.template = "/shop/shop.pug";
+  sendData(ctx, 200, {
+    cart: {},
+    filters: [],
+    products,
+  });
+});
+
 router.get("/product", (ctx) => {
   sendData(ctx, 200, products);
 });

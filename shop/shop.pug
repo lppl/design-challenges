@@ -1,16 +1,11 @@
-- const data = require(require('path').resolve('./data.js'));
-- const products = data.products;
-- const cart = data.cart;
-- const filters = data.filters;
-
 html(lang="en")
 
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title XMass stuff x
-    link(rel="stylesheet" href="../styles/dist/custom-tailwind.css")
-    link(rel="stylesheet" href="./main.css")
+    link(rel="stylesheet" href="/styles/dist/custom-tailwind.css")
+    link(rel="stylesheet" href="/shop/main.css")
 
   body.grid-areas-shop.text-slate-900
     include ../components/top-nav
@@ -20,10 +15,10 @@ html(lang="en")
     include ../components/discount-cta
 
 
-  script(type="module" src="../utils/xEvents.js")
-  script(type="module" src="../utils/logEvent.js")
-  script(type="module" src="../events/events.js")
-  script(type="module" src="../components/components.js")
+  script(type="module" src="/utils/xEvents.js")
+  script(type="module" src="/utils/logEvent.js")
+  script(type="module" src="/events/events.js")
+  script(type="module" src="/components/components.js")
   script(type="module").
     import {registerXEvents} from "../utils/xEvents.js";
     registerXEvents();
