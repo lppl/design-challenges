@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Remove the line below if you don't want to use TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<!-- Change code below this line -->
+<body class="bg-violet-700 grid place-content-center">
+<style>
+    .grid-cols-2by1 {
+        grid-template-columns: 2fr 1fr;
+    }
+</style>
+<div class="container grid bg-white rounded-xl p-12">
+  <header class="flex flex-col items-center mb-8">
+    <label
+      class="mb-1 bg-violet-600 font-light text-white rounded-full -center px-3 py-1 text-xs inline-block uppercase">art</label>
+    <h1 class="mb-3 font-bold text-4xl font-serif">Inspirational stories</h1>
+    <p class="text-center text-xl text-violet-800">
+      Explore inspirational and motivational stories by creatives<br>
+      with decades of experience in the field</p>
+  </header>
+  <ul class="grid gap-6 grid-cols-2by1 mb-6 aspect-[2/1]">
+    <li class=" relative">
+      <a class="group absolute inset-0 rounded-lg overflow-clip hover:shadow-lg shadow-zinc-200 ease-out group-hover:ease-in duration-100">
+        <img class="absolute inset-0 group-hover:scale-105 ease-out group-hover:ease-in duration-100" src="./img_2.png" alt="sky">
+        <h4
+          class="absolute bottom-0 left-0 right-0 px-8 py-6 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)] shadow-black text-3xl font-semibold font-serif">
+          How to stop wasting time and
+          start exploring the opportunities around you</h4>
+      </a>
+    </li>
+    <li class="">
+      <a class="group h-full rounded-lg block overflow-clip hover:shadow-lg shadow-zinc-200">
+        <div class="aspect-video bg-center bg-[length:100%] group-hover:bg-[length:105%] ease-out group-hover:ease-in duration-100 bg-no-repeat" style="background-image: url(./img_1.png)"></div>
+
+<!--        <div class="aspect-video overflow-clip">-->
+<!--          <img class="aspect-video object-cover group-hover:scale-105 ease-out group-hover:ease-in duration-100"-->
+<!--               src="./img_1.png" alt="coffee">-->
+<!--        </div>-->
+<!--        <img class="aspect-video object-cover group-hover:scale-105 ease-out group-hover:ease-in duration-100" src="./img_1.png" alt="coffee">-->
+        <h4 class="font-bold text-2xl font-serif px-4">The lazy man's guide to art</h4>
+        <p class="px-4">Behind a complicated legacy: he is one of the most recognized and influential artists of the lSt century
+          and a National MedL of Arts</p>
+      </a>
+    </li>
+  </ul>
+  <a class="mx-auto px-5 py-4 bg-violet-900 text-white rounded-md text-sm font-light">Read more on the blog</a>
+</div>
+</body>
+<!-- Change code above this line -->
+
+</html>
